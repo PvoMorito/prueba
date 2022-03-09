@@ -6,6 +6,8 @@ public class prueba {
 		// TODO Auto-generated method stub
 
 		System.out.println("Hola mundo");
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println("Esto es una prueba del GitHub");
 	}
 
 }
