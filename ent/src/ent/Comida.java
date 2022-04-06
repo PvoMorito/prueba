@@ -69,6 +69,7 @@ public class Comida extends JFrame {
 		Peso.setBounds(133, 20, 54, 21);
 		contentPane.add(Peso);
 		Peso.setColumns(10);
+
 		
 		JLabel lblKg = new JLabel("Kg");
 		lblKg.setBounds(191, 22, 60, 17);

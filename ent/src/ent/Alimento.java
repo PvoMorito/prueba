@@ -1,6 +1,11 @@
+/* Clase Alimento
+ * Versión 1.0
+ * 23-03-2022
+ */
+
 package ent;
 
-public class Alimentos {
+public class Alimento {
 
 	private String nombreAlimento;
 	private double numeroCalorias;
@@ -11,10 +16,12 @@ public class Alimentos {
 	private double numeroProteinas;
 	private double numeroSal;
 	
-	public Alimentos() {
+	//Alimentos vacio
+	public Alimento() {
 		
 	}
-	public Alimentos(String nombre,double calorias, double grasas,double hidratos, double azucar, double grasasSat, double proteina, double sal) {
+	//Alimentos con sus atributos
+	public Alimento(String nombre,double calorias, double grasas,double hidratos, double azucar, double grasasSat, double proteina, double sal) {
 		nombreAlimento=nombre;
 		numeroCalorias=calorias;
 		numeroGrasas=grasas;
@@ -24,6 +31,7 @@ public class Alimentos {
 		numeroProteinas=proteina;
 		numeroSal=sal;
 	}
+	// Getters y setters
 	public String getNombreAlimento() {
 		return nombreAlimento;
 	}
@@ -72,5 +80,7 @@ public class Alimentos {
 	public void setNumeroSal(double numeroSal) {
 		this.numeroSal = numeroSal;
 	}
+	
+	
 	
 }
