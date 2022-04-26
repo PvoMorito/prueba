@@ -16,12 +16,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Comida extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField Peso;
 	private JTextField Edad;
+	private JTextField TextBoxCantidadConsumida;
+
 
 	/**
 	 * Launch the application.
@@ -54,6 +58,11 @@ public class Comida extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton Validar = new JButton("Validar");
+		Validar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		Validar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -98,6 +107,8 @@ public class Comida extends JFrame {
 		Sexo.addItem("Hombre");
 		Sexo.addItem("Mujer");
 		
+
+		
 		JLabel lblSeleccioneSuMtodo = new JLabel("Seleccione su método de medida");
 		lblSeleccioneSuMtodo.setBounds(12, 63, 211, 17);
 		contentPane.add(lblSeleccioneSuMtodo);
@@ -107,6 +118,7 @@ public class Comida extends JFrame {
 		contentPane.add(Medida);
 		Medida.addItem("Gramos");
 		Medida.addItem("Porciones");
+		
 		
 		JLabel lblCantidadCalorias = new JLabel("Calorias:");
 		lblCantidadCalorias.setBounds(12, 133, 60, 17);
@@ -164,6 +176,55 @@ public class Comida extends JFrame {
 		CantidadAzucar.setBounds(84, 307, 60, 17);
 		contentPane.add(CantidadAzucar);
 		
+		TextBoxCantidadConsumida = new JTextField();
+		TextBoxCantidadConsumida.setBounds(191, 189, 54, 21);
+		contentPane.add(TextBoxCantidadConsumida);
+		TextBoxCantidadConsumida.setColumns(10);
+		
+		JComboBox listaAlimentos = new JComboBox();
+		listaAlimentos.setBounds(228, 94, 122, 27);
+		contentPane.add(listaAlimentos);
+		
+		
+		
+		
+		
+		Alimento tomate=new Alimento("Tomate",18.0,0.2,2.7,1.3,0.4,0.3,0.1);
+		listaAlimentos.addItem("Tomate");
+		String lista=(String)listaAlimentos.getSelectedItem();
+	
+		String sexo=(String)Sexo.getSelectedItem();
+		//String medida=(String)Medida.getSelectedItem();
+		
+		//double cantidad=);
+	
+		
+		Validar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(sexo.equals("Hombre")) {
+					tomate.calcularCaloriasGrasasHombre();
+				}
+				else
+					tomate.calcularCaloriasGrasasMujer();
+				
+				if(lista.equals("Tomate")) {
+					//evento cuando se clique un objeto de la lista se pongan en los valores de los labels
+				}
+				if(TextBoxCantidadConsumida.getText().isEmpty()) {
+					CantidadAzucar.setText("0");
+					
+				}
+				else {
+					
+					double por=(tomate.getNumeroAzucar()*Double.parseDouble(TextBoxCantidadConsumida.getText())/100);
+					CantidadAzucar.setText(String.valueOf(por));
+
+				}
+	}
+		});
 		
 	}
+
+
 }

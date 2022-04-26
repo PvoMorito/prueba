@@ -5,7 +5,7 @@
 
 package ent;
 
-public class Alimento {
+public class Alimento  {
 
 	private String nombreAlimento;
 	private double numeroCalorias;
@@ -80,7 +80,38 @@ public class Alimento {
 	public void setNumeroSal(double numeroSal) {
 		this.numeroSal = numeroSal;
 	}
+
+
 	
+	//Aquí este método es para calcular las calorias de un varón, y hace un condicional para comprobar si tiene un buen nivel, o no, de calorias
+	
+	public String calcularCaloriasGrasasHombre() {
+		double total=0.0;
+		double ingestaTotal=numeroGrasasSaturadas+numeroProteinas+numeroAzucar+numeroHidratos;
+		String mensaje=null;
+		total=30%(ingestaTotal);
+		if(total<2000) 
+			mensaje="Cantidad de calorias por debajo del nivel recomendado";
+		if(total>2500)
+			mensaje="Cantidad de calorias por encima del nivel recomendado";
+		else
+			mensaje="Cantidad de calorias estable, es decir, dentro de los valores recomendados";
+	return mensaje;
+	}
+	//Aquí este método es para calcular las calorias de una hembra, y hace un condicional para comprobar si tiene un buen nivel, o no, de calorias
+	public String calcularCaloriasGrasasMujer() {
+		double total=0.0;
+		double ingestaTotal=numeroGrasasSaturadas+numeroProteinas+numeroAzucar+numeroHidratos;
+		String mensaje=null;
+		total=30%(ingestaTotal);
+		if(total<1600) 
+			mensaje="Cantidad de calorias por debajo del nivel recomendado";
+		if(total>2000)
+			mensaje="Cantidad de calorias por encima del nivel recomendado";
+		else
+			mensaje="Cantidad de calorias estable, es decir, dentro de los valores recomendados";
+	return mensaje;
+	}
 	
 	
 }
